@@ -1,6 +1,5 @@
-'use strict';
-
-const generateId = require('../../utils/generateId.util');
+import { Context } from 'koa';
+import generateId from '../../utils/generateId';
 
 /**
  * Mock database, replace this with your db models import, required to perform query to your database.
@@ -25,7 +24,7 @@ const db = {
   ],
 };
 
-exports.getOne = ctx => {
+export const getOne = (ctx: Context) => {
   const { userId } = ctx.params;
   const user = db.users.find(user => user.id === userId);
   ctx.assert(user, 404, "The requested user doesn't exist");
@@ -33,22 +32,22 @@ exports.getOne = ctx => {
   ctx.body = user;
 };
 
-exports.getAll = async ctx => {
+export const getAll = async (ctx: Context) => {
   ctx.status = 200;
   ctx.body = db.users;
 };
 
-exports.createOne = async ctx => {
-  const { name } = ctx.request.body;
-  ctx.assert(name, 400, 'The user info is malformed!');
-  const id = generateId();
-  const newUser = {
-    id,
-    name,
-    timestamp: Date.now(),
-  };
-  db.users.push(newUser);
-  const createdUser = db.users.find(user => user.id === id);
-  ctx.status = 201;
-  ctx.body = createdUser;
-};
+// const createOne = async ctx => {
+//   const { name } = ctx.request.body;
+//   ctx.assert(name, 400, 'The user info is malformed!');
+//   const id = generateId();
+//   const newUser = {
+//     id,
+//     name,
+//     timestamp: Date.now(),
+//   };
+//   db.users.push(newUser);
+//   const createdUser = db.users.find(user => user.id === id);
+//   ctx.status = 201;
+//   ctx.body = createdUser;
+// };

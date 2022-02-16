@@ -1,3 +1,12 @@
-# koa-template
+.env
 
-Koa boilerplate template for create-koa-application.
+```
+PORT=<number>
+API_VERSION=<string>
+
+DB_USER=<string>
+DB_HOST=<string>
+DB_PASSWORD=<string>
+DB_DATABASE=<string>
+DB_PORT=<number>
+```

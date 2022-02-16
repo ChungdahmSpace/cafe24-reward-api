@@ -1,4 +1,6 @@
-module.exports = async (ctx, next) => {
+import { Context } from 'koa';
+
+const errorHandler = async (ctx: Context, next: () => void) => {
   try {
     await next();
   } catch (err) {
@@ -10,3 +12,5 @@ module.exports = async (ctx, next) => {
     };
   }
 };
+
+export default errorHandler;
