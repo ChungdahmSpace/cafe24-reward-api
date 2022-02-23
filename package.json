@@ -2,24 +2,20 @@
   "name": "cafe24-reward-api",
   "version": "0.1.0",
   "description": "",
-  "main": "index.ts",
+  "main": "app.ts",
   "scripts": {
     "check": "npm run format && npm run lint",
-    "dev": "nodemon --watch src --delay 500ms --exec 'ts-node' src/index.ts",
-    "format": "prettier --write \"**/*.+(js|yml|yaml|json)\"",
-    "lint": "eslint .",
-    "start": "node index.js",
-    "test": "NODE_ENV=test jest'"
+    "build": "nodemon --watch src --delay 500ms --exec 'ts-node' src/app.ts"
   },
   "devDependencies": {
     "@types/joi": "^17.2.3",
     "@types/koa": "^2.13.4",
-    "@types/koa__cors": "^3.1.1",
     "@types/koa-bodyparser": "^4.3.5",
     "@types/koa-compress": "^4.0.3",
     "@types/koa-helmet": "^6.0.4",
     "@types/koa-logger": "^3.1.2",
     "@types/koa-router": "^7.4.4",
+    "@types/koa__cors": "^3.1.1",
     "@types/uuid": "^8.3.4",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.3.0",
@@ -38,6 +34,8 @@
   },
   "dependencies": {
     "@koa/cors": "2.2.3",
+    "@types/axios": "^0.14.0",
+    "axios": "^0.26.0",
     "dotenv": "8.0.0",
     "joi": "14.3.1",
     "koa": "2.7.0",
@@ -46,6 +44,7 @@
     "koa-helmet": "4.1.0",
     "koa-logger": "3.2.0",
     "koa-router": "^7.4.0",
+    "querystring": "^0.2.1",
     "uuid": "3.3.2"
   }
 }

@@ -1,4 +1,3 @@
-require('dotenv').config();
+require('dotenv').config()
 
-export { default as dbConfig } from './database.config';
-export { default as serverConfig } from './server.config';
+export { default as cafe24Config } from './cafe24.config'
